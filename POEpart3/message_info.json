@@ -1,0 +1,26 @@
+[
+  {
+    "idnum": "5208584770",
+    "cellNum": "52:1hellojson",
+    "message": "+27654",
+    "hashnum": "hello json"
+  },
+  {
+    "idnum": "9478142926",
+    "cellNum": "94:1hellohello",
+    "message": "+271234",
+    "hashnum": "hello"
+  },
+  {
+    "idnum": "6891531879",
+    "cellNum": "68:2howyou",
+    "message": "+279876",
+    "hashnum": "how are you"
+  },
+  {
+    "idnum": "5065858289",
+    "cellNum": "50:1:hihi",
+    "message": "+27345",
+    "hashnum": "hi"
+  }
+]
