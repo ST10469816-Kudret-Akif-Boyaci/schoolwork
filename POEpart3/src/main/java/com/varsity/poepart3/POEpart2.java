@@ -65,8 +65,6 @@ public class POEpart2 {
                 System.out.println("how many messages would you like to enter");
                 messagecount = inputdevice.nextInt();
 
-                //disregarded2 = new String[messagecount];
-                //sent2 = new String[messagecount];
                 array1.counter1(messagecount);
 
                 int counter = 0;  //sentinel. controller
@@ -98,9 +96,8 @@ public class POEpart2 {
                     System.out.println("Message sent");
 
                     idnum = messageobject.generateUniqueId();
-                    //          System.out.println(idnum);
+
                     hashnum = messageobject.generateHash(idnum, counter, message);
-                    //  System.out.println(hashnum);
 
                     array1.idmethod(counter3, idnum);
                     array1.hashmethod(counter3, hashnum);
@@ -113,36 +110,29 @@ public class POEpart2 {
                     send = inputdevice.nextLine();
 
                     if (send.contains("send")) {
-                        // sent2[counter1] = message;
+
                         array1.send(counter1, message, cellnum, hashnum, idnum);
                         counter1++;
                         System.out.println("Message succesfully sent");
                     } else if (send.contains("disreagard")) {
-                        //disregarded2[counter2] = message;
+
                         array1.disregard(counter2, message, cellnum, hashnum, idnum);
                         counter2++;
                         System.out.println("Press 0 to delete the message");
                     } else if (send.contains("store")) {
                         Json.Json(idnum, cellnum, message, hashnum);
 
-                        //  counter3++;
                         System.out.println("Message succesfully stored");
                     }
-                    //String send2 = messageobject.sentmessage(send);
-                    //System.out.println(send2);
 
                     JOptionPane.showMessageDialog(null, " Message id is: " + idnum
                             + "\n Message hash is; " + hashnum
                             + "\n recepient is: " + cellnum
                             + "\n message is: " + message);
-// sometimes joptionpane popup opens up behind the app and you need to minimise netbeans to see it.
 
-                    //  Generator.saveMessagesToJson();
-                    //  Json.Json(idnum, cellnum, message, hashnum);
                 }
                 System.out.println(counter + " is the total number of messages typed.");
             } else if (option == 2) {
-                //   System.out.println("Coming soon");
 
                 int option2 = Integer.parseInt(JOptionPane.showInputDialog("""
                            Please select one of the following options to view 
@@ -152,37 +142,16 @@ public class POEpart2 {
                            Option 4: check IDs
                            Option 5: Check Hashes
                            Option 6: all messages
+                           Option 7: Search messages by ID
+                           OPtion 8: Search messages by recepient phone number
+                           Option 9: Show all messages
+                           Option 10: Show the longest message
+                           Option 11: delete using hash
                            please enter the number corresponding to the option chosen"""));
 
                 if (option2 == 3) {
                     array1.array(new String[0]);
-//                    try {
-//                        // Create a Gson instance
-//                        Gson gson = new Gson();
-//
-//                        // Read the JSON file
-//                        FileReader reader = new FileReader("message_info.json");
-//
-//                        // Define the array type
-//                        Type recordArrayType = new TypeToken<Record[]>() {
-//                        }.getType();
-//
-//                        // Deserialize into array
-//                        Record[] records = gson.fromJson(reader, recordArrayType);
-//
-//                        // Print each record
-//                        for (Record record : records) {
-//                            System.out.println(record);
-//                        }
-//
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
 
-//        code attribution
-//        this method was partially helped by ChatGPT
-//        https://openai.com/
-//        ChatGPT
-                    //  }
                 } else if (option2 == 1) {
 //                   
                     array1.printsend();
@@ -211,22 +180,104 @@ public class POEpart2 {
 
                     if (option3 == 1) {
                         System.out.println("type the id you are searching for");
-                    
-                     
-                    String search1 = inputdevice.nextLine();
-                    
 
-                    array1.findid(search1);
-                   array2.jsonSearch(search1);
-                  
-            }
+                        String search1 = inputdevice.nextLine();
 
+                        array1.findid(search1);
 
-            
-            
+                    } else if (option3 == 2) {
+                        System.out.println("type the id you are searching for");
+
+                        String search1 = inputdevice.nextLine();
+
+                        array1.findid2(search1);
+
+                    } else if (option3 == 3) {
+                        System.out.println("type the id you are searching for");
+
+                        String search1 = inputdevice.nextLine();
+
+                        array2.jsonSearch(search1);
+
+                    }
+
+                } else if (option2 == 8) {
+                    int option3 = Integer.parseInt(JOptionPane.showInputDialog("""
+                           Please select one of the following options to view 
+                           Option 1: sent message 
+                           Option 2: disregarded messages
+                           Option 3: stored messages
+                           please enter the number corresponding to the option chosen"""));
+
+                    if (option3 == 1) {
+                        System.out.println("type the phone number you are searching for");
+
+                        String search1 = inputdevice.nextLine();
+
+                        array1.findid(search1);
+
+                    } else if (option3 == 2) {
+                        System.out.println("type the phone number you are searching for");
+
+                        String search1 = inputdevice.nextLine();
+
+                        array1.findid2(search1);
+
+                    } else if (option3 == 3) {
+                        System.out.println("type the phone number you are searching for");
+
+                        String search1 = inputdevice.nextLine();
+
+                        array2.jsonSearchpnum(search1);
+
+                    }
+                } else if (option2 == 9) {
+                    array1.printsend();
+                    array1.printdisreagard();
+                    array1.array(new String[0]);
+                } else if (option2 == 10) {
+                    int option3 = Integer.parseInt(JOptionPane.showInputDialog("""
+                           Please select one of the following options to view 
+                           Option 1: sent message 
+                           Option 2: disregarded messages
+                           Option 3: stored messages
+                           please enter the number corresponding to the option chosen"""));
+
+                    if (option3 == 1) {
+                        array1.findLongestSend();
+                    } else if (option3 == 2) {
+                        array1.findLongestDis();
+                    } else if (option3 == 3) {
+                        array1.arraylong(args);
+                    }
+                } else if (option2 == 11) {
+                    int option3 = Integer.parseInt(JOptionPane.showInputDialog("""
+                           Please select one of the following options to view 
+                           Option 1: sent message 
+                           Option 2: disregarded messages
+                           Option 3: stored messages
+                           please enter the number corresponding to the option chosen"""));
+
+                    if (option3 == 1) {
+                        System.out.println("type the hash number you want to delete");
+
+                        String search1 = inputdevice.nextLine();
+                        array1.findhash(search1);
+                    } else if (option3 == 2) {
+                        System.out.println("type the hash number you want to delete");
+
+                        String search1 = inputdevice.nextLine();
+                        array1.findhash2(search1);
+                    } else if (option3 == 3) {
+                        System.out.println("type the hash number you want to delete");
+
+                        String search1 = inputdevice.nextLine();
+                        array1.arrayhash(args, search1);
+                    }
                 }
             }
 
         }
     }
 }
+//  +27838884567
