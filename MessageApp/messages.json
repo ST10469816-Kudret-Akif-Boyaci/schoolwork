@@ -1,0 +1,16 @@
+[
+  {
+    "id": "6441720793",
+    "cellNumber": "12345678",
+    "message": "qwerty",
+    "hash": "64:1:qwerty:qwerty",
+    "status": "send"
+  },
+  {
+    "id": "997019316",
+    "cellNumber": "1234534",
+    "message": "zxcvb",
+    "hash": "99:2:zxcvb:zxcvb",
+    "status": "archive"
+  }
+]
