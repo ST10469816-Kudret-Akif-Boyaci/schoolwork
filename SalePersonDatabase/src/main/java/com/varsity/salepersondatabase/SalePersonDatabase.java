@@ -12,6 +12,9 @@ import javax.swing.JOptionPane;
  */
 public class SalePersonDatabase {
 
+    private void display(ArrayList<SalePerson> salesp){
+        System.out.println(salesp.toString());
+    }
     public static void main(String[] args) {
         //  System.out.println("Hello World!");
 
